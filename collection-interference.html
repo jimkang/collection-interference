@@ -1,0 +1,44 @@
+<head>
+  <title>collection-interference</title>
+</head>
+
+<body>
+  {{> hello}}
+	<br /><br />
+	{{> Filter}}
+	<br /><br />
+	{{> ThingList}}
+	<br /><br />
+	{{> Total}}
+</body>
+
+<template name="hello">
+  <h1>Hello World!</h1>
+  {{greeting}}
+  <input type="button" value="Create Things" id="createThings" />
+</template>
+
+<template name="Filter">
+	<span>Current filter:</span>
+	<br />
+	<select id="filter" name="filter" size="2">
+	  <option>Filter A</option>
+	  <option>Filter B</option>
+	</select>
+</template>
+
+<template name="ThingList">
+	<span>Things</span>
+	<br />
+	<div>
+		{{#each things}}
+			<div>
+				{{name}} (Filter: {{filter}})
+			</div>
+		{{/each}}
+	</div>	
+</template>
+
+<template name="Total">
+	Total number of things regardless of filter: {{total}}
+</template>
