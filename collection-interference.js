@@ -3,6 +3,9 @@ Things = new Meteor.Collection("things");
 Totals = new Meteor.Collection("totals");
 
 if (Meteor.isServer) {
+	// Clear collection before each test.
+  Things.remove({});
+	
 	Meteor.publish("things", function(params) {
 		return Things.find({ filter: params.filter });
 	});
